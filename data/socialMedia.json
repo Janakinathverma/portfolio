@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "GitHub",
+    "img": "git.svg",
+    "link": "https://github.com/Janakinathverma"
+  },
+  {
+    "id": 2,
+    "name": "Twitter",
+    "img": "twit.svg",
+    "link": "https://x.com/JanakiNath91931"
+  },
+  {
+    "id": 3,
+    "name": "LinkedIn",
+    "img": "link.svg",
+    "link": "https://www.linkedin.com/in/janakinath-verma-b05a51174/"
+  }
+]

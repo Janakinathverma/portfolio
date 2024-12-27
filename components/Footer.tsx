@@ -1,26 +1,29 @@
 import { FaLocationArrow } from "react-icons/fa6";
-
-import { socialMedia } from "@/data";
+import Image from "next/image";
 import MagicButton from "./MagicButton";
+import socialMedia from "@/data/socialMedia.json";
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10" id="contact">
-      {/* background grid */}
-      <div className="w-full absolute left-0 -bottom-72 min-h-96">
-        <img
+    <footer className="relative w-full pt-20 pb-10 bg-black" id="contact">
+      {/* Background grid */}
+      <div className="absolute left-0 -bottom-72 w-full min-h-[24rem] pointer-events-none">
+        <Image
           src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50 "
+          alt="grid background"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-50"
         />
       </div>
 
-      <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center text-center">
+        <h1 className="heading lg:max-w-[45vw] text-white">
+          Creating <span className="text-purple">seamless, engaging</span> and{" "}
+          <span className="text-purple"> efficient</span> web experiences.
         </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
+        <p className="text-white-200 md:mt-10 my-5 text-center max-w-[80%]">
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
@@ -32,19 +35,31 @@ const Footer = () => {
           />
         </a>
       </div>
-      <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-        <p className="md:text-base text-sm md:font-normal font-light">
+
+      {/* Footer Bottom Section */}
+      <div className="relative z-10 flex flex-col md:flex-row justify-between items-center mt-16 md:gap-8 gap-4">
+        <p className="text-sm md:text-base font-light text-gray-400">
           Copyright © 2024 Janaki Nath Verma
         </p>
 
-        <div className="flex items-center md:gap-3 gap-6">
+        <div className="flex items-center gap-4">
           {socialMedia.map((info) => (
-            <div
+            <a
               key={info.id}
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+              href={info.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex justify-center items-center bg-black-200 bg-opacity-75 backdrop-blur-lg rounded-lg border border-black-300 hover:opacity-90 transition-opacity"
+              aria-label={info.name}
             >
-              <img src={info.img} alt="icons" width={20} height={20} />
-            </div>
+              <Image
+                src={info.img}
+                alt={`${info.name} icon`}
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+            </a>
           ))}
         </div>
       </div>
